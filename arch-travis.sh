@@ -370,6 +370,7 @@ fi
 
 arch_msg "Getting system information"
 chroot_as_normal "screenfetch"
+chroot_as_normal "lscpu"
 
 echo "travis_fold:end:arch_travis"
 echo ""
