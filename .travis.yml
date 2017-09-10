@@ -1,7 +1,7 @@
 sudo: required
 
 env:
-  - ARCH_TRAVIS_CLEAN_CHROOT=1 ARCH_TRAVIS_CONFIRM_YES=1
+  - ARCH_TRAVIS_CLEAN_CHROOT=1 ARCH_TRAVIS_CONFIRM_YES=1 ARCH_TRAVIS_INFO_VERBOSE=1
 
 arch:
   repos:
@@ -9,7 +9,9 @@ arch:
   packages:
     - procps-ng
     - reflector
+    - hwinfo
   script:
+    - "hwinfo"
     - "reflector --verbose -l 20 --sort rate -p https"
     - "echo $CC"
     - "touch test_file"
