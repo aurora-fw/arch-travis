@@ -46,7 +46,7 @@ export EDITOR=false
 
 
 # default packages
-default_packages=("base-devel" "git")
+default_packages=("base-devel" "git" "screenfetch")
 
 # pacman.conf repository line
 repo_line=70
@@ -142,7 +142,7 @@ setup_chroot() {
   sudo mount --bind /sys $ARCH_TRAVIS_CHROOT/sys
   sudo mount --bind /dev $ARCH_TRAVIS_CHROOT/dev
   sudo mount --bind /dev/pts $ARCH_TRAVIS_CHROOT/dev/pts
-  #sudo mount --bind /dev/shm $ARCH_TRAVIS_CHROOT/dev/shm
+  sudo mount --bind /dev/shm $ARCH_TRAVIS_CHROOT/dev/shm
   sudo mount --bind /run $ARCH_TRAVIS_CHROOT/run
 
   # update packages
@@ -173,11 +173,6 @@ setup_chroot() {
 
   # setup pacaur for AUR packages
   setup_pacaur
-  
-  chroot_as_root "rm -rf /dev/shm"
-  #chroot_as_root "ln -s /run/shm /dev/shm"
-  chroot_as_root "mkdir -p /dev/shm"
-  chroot_as_root "chmod 777 /dev/shm"
 }
 
 # add custom repositories to pacman.conf
