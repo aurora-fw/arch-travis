@@ -370,15 +370,6 @@ fi
 
 arch_msg "Getting system information"
 chroot_as_normal "screenfetch"
-if [ "$ARCH_TRAVIS_INFO_VERBOSE" == 1 ]; then
-chroot_as_normal "lscpu";
-chroot_as_normal "lscpu -e";
-chroot_as_normal "lsmem";
-chroot_as_normal "lsusb";
-chroot_as_normal "lspci";
-chroot_as_normal "lsblk";
-chroot_as_normal "df -h";
-fi
 
 echo "travis_fold:end:arch_travis"
 echo ""
