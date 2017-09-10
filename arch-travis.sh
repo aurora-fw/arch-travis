@@ -175,9 +175,9 @@ setup_chroot() {
   setup_pacaur
   
   chroot_as_root "rm -rf /dev/shm"
-  chroot_as_root "ln -s /run/shm /dev/shm"
-  #chroot_as_root "mkdir /dev/shm"
-  #chroot_as_root "chmod 777 /dev/shm"
+  #chroot_as_root "ln -s /run/shm /dev/shm"
+  chroot_as_root "mkdir -p /dev/shm"
+  chroot_as_root "chmod 777 /dev/shm"
 }
 
 # add custom repositories to pacman.conf
