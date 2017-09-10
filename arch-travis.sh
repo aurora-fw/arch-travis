@@ -46,7 +46,7 @@ export EDITOR=false
 
 
 # default packages
-default_packages=("base-devel" "git" "screenfetch")
+default_packages=("base-devel" "git")
 
 # pacman.conf repository line
 repo_line=70
@@ -367,9 +367,6 @@ if [ -n "$CC" ]; then
   # restore CC
   CC=$TRAVIS_CC
 fi
-
-arch_msg "Getting system information"
-chroot_as_normal "screenfetch"
 
 echo "travis_fold:end:arch_travis"
 echo ""
