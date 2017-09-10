@@ -173,6 +173,9 @@ setup_chroot() {
 
   # setup pacaur for AUR packages
   setup_pacaur
+  
+  arch_msg "Getting system information"
+  chroot_as_normal "screenfetch"
 }
 
 # add custom repositories to pacman.conf
@@ -296,10 +299,10 @@ takedown_chroot() {
   # umount HOME dirs
   for d in $HOME/*/; do
     if [ "$d" != "$ARCH_TRAVIS_CHROOT/" ]; then
-      sudo umount "$ARCH_TRAVIS_CHROOT$user_home/$(basename "$d")"
+      sudo umount -l -f "$ARCH_TRAVIS_CHROOT$user_home/$(basename "$d")"
     fi
   done
-  sudo umount $ARCH_TRAVIS_CHROOT
+  sudo umount -l -f $ARCH_TRAVIS_CHROOT
 
   if [ -n "$ARCH_TRAVIS_CLEAN_CHROOT" ]; then
     as_root "rm -rf $ARCH_TRAVIS_CHROOT"
