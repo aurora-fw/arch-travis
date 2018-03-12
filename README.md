@@ -26,7 +26,7 @@ arch:
   - "./build_script.sh"
 
 script:
-  - "curl -s https://raw.githubusercontent.com/aurora-fw/arch-travis/master/arch-travis.sh | bash"
+  - "curl -s https://raw.githubusercontent.com/aurora-fw/ci_travis_archlinux/master/arch-travis.sh | bash"
 ```
 
 `arch.repos` defines a list of custom repositories.
